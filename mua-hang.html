@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Mua hàng · Nguyễn Siêu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Be+Vietnam+Pro:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="portal-page">
+  <div class="wrap" id="top">
+    <header class="help-header">
+      <a class="brand" href="trang-chu.html" aria-label="Trang chủ Nguyễn Siêu">
+        <img class="site-logo" src="458473434_485744307585102_5914503607275514249_n.jpg" alt="Logo sân thể thao">
+        <span><h1>Nguyễn Siêu</h1><p>Cửa hàng tiện ích thể thao</p></span>
+      </a>
+      <div class="header-actions">
+        <button class="icon-btn" id="theme" type="button" aria-label="Đổi giao diện sáng/tối">Sáng/Tối</button>
+        <a class="auth-btn primary" data-auth-cta data-logged-label="Đặt sân ngay" data-logged-href="index.html" href="index.html?auth=login">Đăng nhập</a>
+      </div>
+    </header>
+    <nav class="site-tabs" aria-label="Điều hướng chính">
+      <a class="site-tab" href="trang-chu.html">Trang chủ</a>
+      <a class="site-tab" href="index.html">Đặt sân</a>
+      <a class="site-tab is-active" href="mua-hang.html" aria-current="page">Mua hàng</a>
+      <a class="site-tab" href="tim-doi-thu.html">Tìm đối thủ</a>
+      <a class="site-tab" href="thanh-toan.html">Thanh toán</a>
+      <a class="site-tab" href="bao-cao.html">Phản ánh</a>
+    </nav>
+
+    <main class="portal-main">
+      <section class="portal-hero card shop-hero" aria-labelledby="shopTitle">
+        <div>
+          <p class="eyebrow">Tiện ích tại khu thể thao</p>
+          <h1 id="shopTitle">Mua nhanh trước giờ chơi.</h1>
+          <p class="portal-hero-intro">Chọn đồ uống và phụ kiện cơ bản, sau đó chọn giao tận nơi hoặc nhận tại sân. Nếu nhận tại sân, hãy ghi rõ khu/sân, ngày và giờ để nhân viên chuẩn bị đơn tại quầy lễ tân.</p>
+          <div class="portal-actions">
+            <a class="cta" href="index.html">Quay lại đặt sân <span aria-hidden="true">→</span></a>
+            <a class="portal-secondary-link" href="#shopCatalog">Xem sản phẩm ↓</a>
+            <a class="portal-secondary-link" href="#shopOrders">Đơn đã mua ↓</a>
+          </div>
+        </div>
+        <div class="portal-hero-stat">
+          <strong id="shopProductCount">10</strong>
+          <span>Sản phẩm thiết yếu</span>
+          <strong id="shopCartCount">0</strong>
+          <span>Món đang có trong giỏ hàng</span>
+        </div>
+      </section>
+
+      <section class="shop-layout" id="shopCatalog" aria-label="Cửa hàng tiện ích thể thao">
+        <div class="card shop-catalog">
+          <div class="shop-section-heading">
+            <div>
+              <p class="eyebrow">Danh mục tại sân</p>
+              <h2>Sẵn sàng cho trận chơi</h2>
+              <p>Giá tham khảo theo mặt bằng bán lẻ phổ biến, có thể thay đổi theo từng đợt nhập hàng.</p>
+            </div>
+            <span class="shop-stock-pill">Có sẵn tại sân</span>
+          </div>
+
+          <div class="shop-filters" role="group" aria-label="Lọc sản phẩm">
+            <button class="shop-filter is-active" type="button" data-shop-filter="all">Tất cả</button>
+            <button class="shop-filter" type="button" data-shop-filter="drink">Đồ uống</button>
+            <button class="shop-filter" type="button" data-shop-filter="support">Bảo hộ &amp; băng quấn</button>
+          </div>
+
+          <div class="shop-products" id="shopProducts"></div>
+        </div>
+
+        <aside class="card shop-cart" id="shopCartPanel" aria-labelledby="shopCartTitle">
+          <div class="shop-cart-heading">
+            <div>
+              <p class="eyebrow">Đơn mua hàng</p>
+              <h2 id="shopCartTitle">Giỏ hàng</h2>
+            </div>
+            <span class="shop-cart-badge" id="shopCartBadge">0</span>
+          </div>
+
+          <div class="shop-cart-items" id="shopCartItems">
+            <p class="empty">Giỏ hàng đang trống. Hãy chọn một món để bắt đầu.</p>
+          </div>
+
+          <div class="shop-cart-breakdown">
+            <div><span>Tiền sản phẩm</span><strong id="shopSubtotal">0đ</strong></div>
+            <div id="shopShippingFeeRow" hidden><span>Phí giao tận nơi</span><strong id="shopShippingFee">30.000đ</strong></div>
+          </div>
+          <div class="shop-cart-total">
+            <span>Tổng thanh toán</span>
+            <strong id="shopTotal">0đ</strong>
+          </div>
+
+          <form class="shop-checkout-form" id="shopCheckoutForm">
+            <p class="shop-form-title">Thông tin nhận hàng</p>
+            <label for="shopName">Họ tên *</label>
+            <input id="shopName" name="name" autocomplete="name" required placeholder="Nguyễn Văn A">
+
+            <label for="shopPhone">Số điện thoại *</label>
+            <input id="shopPhone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" required placeholder="0901234567">
+
+            <fieldset class="shop-delivery-method">
+              <legend>Hình thức nhận hàng *</legend>
+              <label class="shop-delivery-option">
+                <input type="radio" name="deliveryMethod" value="shipping" checked>
+                <span><strong>Giao tận nơi</strong><small>Phí ship cố định: 30.000đ</small></span>
+              </label>
+              <label class="shop-delivery-option">
+                <input type="radio" name="deliveryMethod" value="pickup">
+                <span><strong>Nhận tại sân</strong><small>Miễn phí · Nhận tại quầy lễ tân của khu/sân đã chọn.</small></span>
+              </label>
+            </fieldset>
+
+            <div class="shop-shipping-fields" id="shopShippingFields">
+              <label for="shopAddress">Địa chỉ nhận hàng *</label>
+              <textarea id="shopAddress" name="address" rows="3" autocomplete="street-address" required placeholder="Số nhà, đường, phường/xã, quận/huyện"></textarea>
+            </div>
+
+            <div class="shop-pickup-fields" id="shopPickupFields" hidden>
+              <label for="shopPickupVenue">Sân nhận đồ *</label>
+              <select id="shopPickupVenue" name="pickupVenue" disabled required>
+                <option value="">Chọn khu và sân</option>
+              </select>
+
+              <label for="shopPickupDate">Ngày nhận đồ *</label>
+              <input id="shopPickupDate" name="pickupDate" type="date" disabled required>
+
+              <label for="shopPickupTime">Giờ nhận đồ *</label>
+              <select id="shopPickupTime" name="pickupTime" disabled required>
+                <option value="">Chọn khung giờ nhận</option>
+              </select>
+              <p class="shop-pickup-hint">Nhân viên sẽ chuẩn bị đơn tại quầy lễ tân của khu/sân và khung giờ bạn đã chọn. Khi đến, bạn chỉ cần đọc họ tên và số điện thoại rồi thanh toán trực tiếp tại quầy.</p>
+            </div>
+
+            <label for="shopNote">Ghi chú</label>
+            <textarea id="shopNote" name="note" rows="2" placeholder="Ví dụ: giao trước giờ đá 19h"></textarea>
+
+            <button class="cta" id="shopPayButton" type="submit" disabled>Thêm sản phẩm để thanh toán</button>
+            <p class="msg" id="shopCheckoutMsg" aria-live="polite"></p>
+          </form>
+        </aside>
+      </section>
+
+      <section class="card shop-info" aria-labelledby="shopInfoTitle">
+        <div>
+          <p class="eyebrow">Thanh toán linh hoạt</p>
+          <h2 id="shopInfoTitle">Chọn cách thanh toán phù hợp</h2>
+          <p>Giao tận nơi sẽ tạo mã QR theo tổng tiền đơn hàng và dùng số điện thoại làm nội dung chuyển khoản. Nếu nhận tại sân, bạn không cần thanh toán trước: chỉ cần đọc họ tên và số điện thoại để nhận đồ rồi thanh toán trực tiếp tại quầy.</p>
+        </div>
+        <div class="shop-info-steps">
+          <span><b>01</b> Chọn sản phẩm</span>
+          <span><b>02</b> Chọn cách nhận hàng</span>
+          <span><b>03</b> QR khi giao tận nơi · Trả tại quầy khi nhận ở sân</span>
+        </div>
+      </section>
+
+      <section class="card shop-orders" id="shopOrders" aria-labelledby="shopOrdersTitle">
+        <div class="shop-section-heading">
+          <div>
+            <p class="eyebrow">Lịch sử mua hàng</p>
+            <h2 id="shopOrdersTitle">Đồ đã mua</h2>
+            <p>Các đơn hàng được lưu trên thiết bị này để bạn xem lại sản phẩm, số lượng và trạng thái giao hàng.</p>
+          </div>
+          <span class="shop-stock-pill" id="shopOrdersCount">0 đơn</span>
+        </div>
+        <div class="shop-orders-list" id="shopOrdersList">
+          <p class="empty">Bạn chưa có đơn mua hàng nào.</p>
+        </div>
+      </section>
+
+      <div class="shop-payment-modal" id="shopPaymentModal" hidden>
+        <div class="shop-payment-backdrop" data-shop-payment-close></div>
+        <section class="shop-payment-dialog" role="dialog" aria-modal="true" aria-labelledby="shopPaymentTitle">
+          <button class="shop-payment-close" id="shopPaymentClose" type="button" aria-label="Đóng cửa sổ thanh toán">×</button>
+          <p class="eyebrow">Thanh toán đơn mua hàng</p>
+          <h2 id="shopPaymentTitle">Quét mã QR để thanh toán</h2>
+          <p class="shop-payment-intro">Kiểm tra số tiền và dùng đúng số điện thoại làm nội dung chuyển khoản.</p>
+
+          <div class="shop-payment-grid">
+            <div class="shop-payment-qr">
+              <img id="shopPaymentQr" src="" alt="Mã QR thanh toán đơn mua hàng">
+              <span>QR VietQR</span>
+            </div>
+            <div class="shop-payment-details">
+              <div><span>Mã đơn</span><strong id="shopPaymentOrderId">—</strong></div>
+              <div><span>Tổng tiền</span><strong class="shop-payment-amount" id="shopPaymentAmount">0đ</strong></div>
+              <div><span>Ngân hàng</span><strong>Techcombank</strong></div>
+              <div><span>Số tài khoản</span><strong>1122777163</strong></div>
+              <div><span>Nội dung chuyển khoản</span><strong id="shopPaymentContent">—</strong></div>
+              <div><span>Nhận hàng</span><strong id="shopPaymentAddress">—</strong></div>
+            </div>
+          </div>
+
+          <div class="shop-payment-actions">
+            <button class="auth-btn" id="shopCopyPayment" type="button">Sao chép nội dung</button>
+            <button class="cta" id="shopPaymentDone" type="button">Tôi đã chuyển khoản</button>
+          </div>
+          <p class="msg" id="shopPaymentMsg" aria-live="polite">Đơn hàng sẽ được sân xác nhận sau khi kiểm tra giao dịch.</p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer" id="footer">
+      <div class="footer-grid">
+        <section class="footer-brand" aria-label="Giới thiệu Nguyễn Siêu">
+          <a class="footer-logo" href="trang-chu.html">Nguyễn <span>Siêu</span></a>
+          <p>Nền tảng đặt sân thể thao trực tuyến, giúp bạn tìm sân nhanh và sắp xếp lịch chơi dễ dàng.</p>
+        </section>
+        <nav class="footer-links" aria-label="Khám phá">
+          <h3>Khám phá</h3>
+          <a href="trang-chu.html">Trang chủ</a>
+          <a href="index.html">Đặt sân</a>
+          <a href="tim-doi-thu.html">Tìm đối thủ</a>
+          <a href="thanh-toan.html">Thanh toán</a>
+        </nav>
+        <nav class="footer-links" aria-label="Hỗ trợ">
+          <h3>Hỗ trợ</h3>
+          <a href="huong-dan.html">Hướng dẫn đặt sân</a>
+          <a href="bao-cao.html">Báo cáo</a>
+          <a href="dieu-khoan-chinh-sach.html#contact">Liên hệ</a>
+          <a href="dieu-khoan-chinh-sach.html#terms">Điều khoản sử dụng</a>
+        </nav>
+        <section class="footer-newsletter" aria-label="Đăng ký nhận ưu đãi">
+          <h3>Đăng ký nhận ưu đãi</h3>
+          <p>Nhận thông tin sân mới và ưu đãi đặt sân qua email.</p>
+          <form id="footerNewsletter">
+            <label class="sr-only" for="newsletterEmail">Email nhận ưu đãi</label>
+            <div class="newsletter-control"><input id="newsletterEmail" type="email" placeholder="Email của bạn" required><button type="submit">Đăng ký</button></div>
+            <p class="footer-form-msg" id="newsletterMsg" aria-live="polite"></p>
+          </form>
+        </section>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Nguyễn Siêu · All rights reserved.</span><span><a href="trang-chu.html">Về trang chủ</a></span></div>
+    </footer>
+  </div>
+  <script src="site-pages.js"></script>
+  <script src="shop.js"></script>
+</body>
+
+</html>
