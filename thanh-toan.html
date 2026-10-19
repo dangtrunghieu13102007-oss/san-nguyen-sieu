@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Thanh toán · Nguyễn Siêu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Be+Vietnam+Pro:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="portal-page">
+  <div class="wrap" id="top">
+    <header class="help-header">
+      <a class="brand" href="trang-chu.html" aria-label="Trang chủ Nguyễn Siêu">
+        <img class="site-logo" src="458473434_485744307585102_5914503607275514249_n.jpg" alt="Logo sân thể thao">
+        <span><h1>Nguyễn Siêu</h1><p>Hướng dẫn thanh toán</p></span>
+      </a>
+      <div class="header-actions">
+        <button class="icon-btn" id="theme" type="button" aria-label="Đổi giao diện sáng/tối">Sáng/Tối</button>
+        <div class="auth-actions" id="authActions">
+          <a class="auth-btn primary" href="index.html?auth=login">Đăng nhập</a>
+        </div>
+        <div class="user-area" id="userArea" hidden>
+          <span class="user-name" id="userName"></span>
+          <button class="auth-btn" type="button" data-logout>Đăng xuất</button>
+        </div>
+      </div>
+    </header>
+    <nav class="site-tabs" aria-label="Điều hướng chính">
+      <a class="site-tab" href="trang-chu.html">Trang chủ</a>
+      <a class="site-tab" href="index.html">Đặt sân</a>
+      <a class="site-tab" href="mua-hang.html">Mua hàng</a>
+      <a class="site-tab" href="tim-doi-thu.html">Tìm đối thủ</a>
+      <a class="site-tab is-active" href="thanh-toan.html" aria-current="page">Thanh toán</a>
+      <a class="site-tab" href="bao-cao.html">Phản ánh</a>
+    </nav>
+
+    <main class="portal-main">
+      <section class="portal-hero card" aria-labelledby="paymentPageTitle">
+        <div>
+          <p class="eyebrow">Hoàn tất đơn đặt sân</p>
+          <h1 id="paymentPageTitle">Thanh toán rõ ràng, nhanh gọn.</h1>
+          <p class="portal-hero-intro">Sau khi xác nhận đặt sân, hệ thống sẽ hiển thị thông tin thanh toán tương ứng để bạn chuyển khoản và gửi xác nhận.</p>
+          <div class="portal-actions">
+            <a class="cta" href="index.html">Chọn sân để đặt <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="portal-hero-stat">
+          <strong>QR</strong>
+          <span>Quét mã được hiển thị sau khi tạo đơn.</span>
+          <strong>24/7</strong>
+          <span>Kiểm tra lại nội dung chuyển khoản trước khi gửi.</span>
+        </div>
+      </section>
+
+      <div class="portal-feature-grid">
+        <section class="card portal-card" aria-labelledby="paymentStepsTitle">
+          <p class="eyebrow">Quy trình</p>
+          <h2 id="paymentStepsTitle">Các bước thanh toán</h2>
+          <ul class="portal-list">
+            <li>Chọn sân và khung giờ còn trống trên trang Đặt sân.</li>
+            <li>Nhập thông tin liên hệ rồi bấm xác nhận đặt sân.</li>
+            <li>Quét mã QR hoặc chuyển khoản đúng số tiền của đơn.</li>
+            <li>Gửi xác nhận để sân kiểm tra và cập nhật trạng thái.</li>
+          </ul>
+        </section>
+        <aside class="card portal-card portal-card--accent" aria-labelledby="paymentInfoTitle">
+          <p class="eyebrow">Thông tin tham khảo</p>
+          <h2 id="paymentInfoTitle">Techcombank</h2>
+          <p><strong>Ngân hàng:</strong> Techcombank (TCB)<br><strong>Số tài khoản:</strong> 1122777163</p>
+          <p class="portal-note"><strong>Lưu ý quan trọng:</strong> Sân chỉ nhận thanh toán qua đúng số tài khoản được hiển thị trên website hoặc mã QR của đơn, hoặc bằng tiền mặt trực tiếp tại sân. Không chuyển khoản cho bất kỳ tài khoản nào khác.</p>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer" id="footer">
+      <div class="footer-grid">
+        <section class="footer-brand" aria-label="Giới thiệu Nguyễn Siêu">
+          <a class="footer-logo" href="trang-chu.html">Nguyễn <span>Siêu</span></a>
+          <p>Nền tảng đặt sân thể thao trực tuyến, giúp bạn tìm sân nhanh và sắp xếp lịch chơi dễ dàng.</p>
+        </section>
+        <nav class="footer-links" aria-label="Khám phá">
+          <h3>Khám phá</h3>
+          <a href="trang-chu.html">Trang chủ</a>
+          <a href="index.html">Đặt sân</a>
+          <a href="mua-hang.html">Mua hàng</a>
+          <a href="tim-doi-thu.html">Tìm đối thủ</a>
+        </nav>
+        <nav class="footer-links" aria-label="Hỗ trợ">
+          <h3>Hỗ trợ</h3>
+          <a href="huong-dan.html">Hướng dẫn đặt sân</a>
+          <a href="bao-cao.html">Báo cáo</a>
+          <a href="dieu-khoan-chinh-sach.html#contact">Liên hệ</a>
+          <a href="dieu-khoan-chinh-sach.html#refund-policy">Chính sách hoàn tiền</a>
+        </nav>
+        <section class="footer-newsletter" aria-label="Đăng ký nhận ưu đãi">
+          <h3>Đăng ký nhận ưu đãi</h3>
+          <p>Nhận thông tin sân mới và ưu đãi đặt sân qua email.</p>
+          <form id="footerNewsletter">
+            <label class="sr-only" for="newsletterEmail">Email nhận ưu đãi</label>
+            <div class="newsletter-control"><input id="newsletterEmail" type="email" placeholder="Email của bạn" required><button type="submit">Đăng ký</button></div>
+            <p class="footer-form-msg" id="newsletterMsg" aria-live="polite"></p>
+          </form>
+        </section>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Nguyễn Siêu · All rights reserved.</span><span><a href="trang-chu.html">Về trang chủ</a></span></div>
+    </footer>
+  </div>
+  <script src="site-pages.js"></script>
+</body>
+
+</html>
