@@ -1,9 +1,9 @@
 const OPPONENT_SPORTS_PAGE = [
-  { id: 'cl', name: 'Cầu lông' },
-  { id: 'pb', name: 'Pickleball' },
-  { id: 'fb', name: 'Bóng đá mini' },
-  { id: 'fb7', name: 'Sân 7 người' },
-  { id: 'tn', name: 'Tennis' }
+  { id: 'cl', name: 'Cầu lông', courts: ['Sân 1', 'Sân 2', 'Sân 3', 'Sân 4'] },
+  { id: 'pb', name: 'Pickleball', courts: ['Sân A', 'Sân B', 'Sân C'] },
+  { id: 'fb', name: 'Bóng đá mini', courts: ['Sân 1', 'Sân 2', 'Sân 3', 'Sân 4'] },
+  { id: 'fb7', name: 'Sân 7 người', courts: ['Sân 1', 'Sân 2', 'Sân 3', 'Sân 4'] },
+  { id: 'tn', name: 'Tennis', courts: ['Sân đất nền', 'Sân cứng'] }
 ];
 
 const OPPONENT_HOURS_PAGE = Array.from({ length: 20 }, (_, index) => index + 6);
@@ -22,7 +22,7 @@ today.setHours(0, 0, 0, 0);
 const maxBookingDate = new Date(today);
 const targetDay = maxBookingDate.getDate();
 maxBookingDate.setDate(1);
-maxBookingDate.setMonth(maxBookingDate.getMonth() + 1);
+maxBookingDate.setMonth(maxBookingDate.getMonth() + 1); 
 maxBookingDate.setDate(Math.min(
   targetDay,
   new Date(maxBookingDate.getFullYear(), maxBookingDate.getMonth() + 1, 0).getDate()
@@ -158,7 +158,7 @@ function renderOpponentList() {
             <span class="opponent-badge">${escapeOpponentHtml(level)}</span>
           </div>
           <p class="opponent-item-meta">
-            ${escapeOpponentHtml(sportName)} · ${formatDate(entry.date)} · ${hourLabel(Number(entry.hour))}–${hourLabel(Number(entry.hour) + 1)}
+            ${escapeOpponentHtml(sportName)} · ${escapeOpponentHtml(entry.court || 'Chưa ghi sân')} · ${formatDate(entry.date)} · ${hourLabel(Number(entry.hour))}–${hourLabel(Number(entry.hour) + 1)}
           </p>
           ${note}
         </div>
@@ -277,11 +277,18 @@ function cancelOpponent(id) {
 
 function initOpponentPage() {
   const sportSelect = opponentElement('opponentSport');
+  const courtSelect = opponentElement('opponentCourt');
   const timeSelect = opponentElement('opponentTime');
   const dateInput = opponentElement('opponentDate');
   const form = opponentElement('opponentForm');
 
   OPPONENT_SPORTS_PAGE.forEach(sport => sportSelect.add(new Option(sport.name, sport.id)));
+  const updateCourts = () => {
+    const sport = OPPONENT_SPORTS_PAGE.find(item => item.id === sportSelect.value);
+    courtSelect.replaceChildren(...(sport?.courts || []).map(court => new Option(court, court)));
+  };
+  sportSelect.addEventListener('change', updateCourts);
+  updateCourts();
   OPPONENT_HOURS_PAGE.forEach(hour => timeSelect.add(new Option(`${hourLabel(hour)}–${hourLabel(hour + 1)}`, hour)));
   dateInput.min = dateKey(today);
   dateInput.max = dateKey(maxBookingDate);
@@ -297,6 +304,7 @@ function initOpponentPage() {
     }
 
     const sportId = sportSelect.value;
+    const court = courtSelect.value;
     const date = dateInput.value;
     const hour = Number(timeSelect.value);
     const level = opponentElement('opponentLevel').value;
@@ -305,6 +313,11 @@ function initOpponentPage() {
 
     if (!OPPONENT_SPORTS_PAGE.some(item => item.id === sportId)) {
       setOpponentMessage('Vui lòng chọn môn thể thao hợp lệ.', 'err');
+      return;
+    }
+
+    if (!OPPONENT_SPORTS_PAGE.find(item => item.id === sportId)?.courts.includes(court)) {
+      setOpponentMessage('Vui lòng chọn sân hợp lệ.', 'err');
       return;
     }
 
@@ -331,6 +344,7 @@ function initOpponentPage() {
       userId: currentUser.id,
       name: currentUser.name,
       sport: sportId,
+      court,
       date,
       hour,
       level,

@@ -62,7 +62,7 @@
           <div>
             <p class="eyebrow">Tạo lời mời chơi</p>
             <h2 id="opponentTitle">Đăng ký tìm đối thủ</h2>
-            <p class="opponent-intro">Chọn môn, ngày, giờ và trình độ. Người chơi phù hợp có thể nhìn thấy lời mời và nhận lời tham gia.</p>
+            <p class="opponent-intro">Chọn môn, sân, ngày, giờ và trình độ. Người chơi phù hợp có thể nhìn thấy lời mời và nhận lời tham gia.</p>
           </div>
           <span class="opponent-count" id="opponentCount">0 người đang tìm</span>
         </div>
@@ -77,6 +77,9 @@
 
             <label for="opponentSport">Môn thể thao</label>
             <select id="opponentSport" required></select>
+
+            <label for="opponentCourt">Sân</label>
+            <select id="opponentCourt" required></select>
 
             <div class="opponent-form-row">
               <div>
@@ -102,6 +105,7 @@
 
             <button class="cta" type="submit">Đăng ký tìm đối thủ</button>
             <p class="msg" id="opponentMsg" aria-live="polite"></p>
+            <p class="opponent-booking-notice" role="note"><strong>Lưu ý:</strong> Hãy đặt sân trước để xác nhận khung giờ và sân chơi. Lời mời tìm đối thủ không thay thế việc đặt sân.</p>
           </form>
 
           <div class="opponent-results">
